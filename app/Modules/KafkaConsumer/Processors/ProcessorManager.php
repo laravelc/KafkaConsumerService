@@ -20,7 +20,7 @@ class ProcessorManager implements IProcessorManager
      */
     public static function getProcessor(string $id): ?IProcessor
     {
-        foreach (config('kafka.processors') as $id2 => $class) {
+        foreach (config('kafka-consumer.processors') as $id2 => $class) {
             if (Str::lower($id2) === Str::lower($id)) {
                 return app($class);
             }
@@ -36,7 +36,7 @@ class ProcessorManager implements IProcessorManager
      */
     public static function getTopics(): ?Generator
     {
-        foreach (config('kafka.processors') as $class) {
+        foreach (config('kafka-consumer.processors') as $class) {
                 yield app($class)->getTopicName();
         }
     }

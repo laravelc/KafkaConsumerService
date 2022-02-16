@@ -60,9 +60,9 @@ class ConsumerWorker implements IConsumerWorker
         $this->processorManager = $processorManager;
         $this->logManager = $logManager;
         $this->consumer = new KafkaConsumer(new Config());
-        $this->autocommit = config('kafka.auto_commit');
-        $this->memoryLimit = config('kafka.memory_limit', 512);
-        $this->timeout = config('kafka.timeout', 200);
+        $this->autocommit = config('kafka-consumer.auto_commit');
+        $this->memoryLimit = config('kafka-consumer.memory_limit', 512);
+        $this->timeout = config('kafka-consumer.timeout', 200);
     }
 
 
